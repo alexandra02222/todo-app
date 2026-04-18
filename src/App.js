@@ -16,17 +16,9 @@ const TodoApp = () => {
   };
 
   const toggleComplete = (id) => {
- pscl_checkbox
-    setTodos(
-      todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-=======
     setTodos(todos.map(todo =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ));
- main
   };
 
   const deleteTodo = (id) => {
@@ -50,16 +42,15 @@ const TodoApp = () => {
       <div>
         {todos.map(todo => (
           <TodoItem key={todo.id} completed={todo.completed}>
- pscl_checkbox
             
-            {/* Checkbox for marking complete */}
+            {/* Checkbox */}
             <input
               type="checkbox"
               checked={todo.completed}
               onChange={() => toggleComplete(todo.id)}
             />
 
-            {/* Todo text */}
+            {/* Text */}
             <span
               style={{
                 textDecoration: todo.completed ? 'line-through' : 'none',
@@ -75,20 +66,6 @@ const TodoApp = () => {
               Delete
             </DeleteButton>
 
-=======
-            <span
-              onClick={() => toggleComplete(todo.id)}
-              style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
-                cursor: 'pointer'
-              }}
-            >
-              {todo.text}
-            </span>
-            <DeleteButton onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </DeleteButton>
- main
           </TodoItem>
         ))}
       </div>
